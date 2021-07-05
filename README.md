@@ -15,9 +15,10 @@ Please deploy a multi env configuration solution.
 You can deploy it anywhere you want with any tool that to want to use.
 
 ```http://service_name:8080/prod/service-a/config - will present production configuration of service a 
-http://service_name:8080/prod/service-b/config - will present production configuration of service b
-http://service_name:8080/dev/service-a/config  - will present dev configuration of service a.
+   http://service_name:8080/prod/service-b/config - will present production configuration of service b
+   http://service_name:8080/dev/service-a/config  - will present dev configuration of service a
 ```
+
 Stage 2:
 
 Update app version and deploy. (to dev and then to prod)
