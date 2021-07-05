@@ -10,9 +10,14 @@ You got 3 hours.
 
 Stage 1:
 
-Please deploy a multi env configuration solution.
+Please deploy a multi env configuration solution
 
 You can deploy it anywhere you want with any tool that to want to use.
+
+This are the 3 Links - PLesae notice - 
+
+a. 2 Different services.
+b. Dont copy the config to the app - inject it.
 
 1. http://service_name:8080/prod/service-a/config - will present production configuration of service a 
 
@@ -22,5 +27,5 @@ You can deploy it anywhere you want with any tool that to want to use.
 
 Stage 2:
 
-Update app version and deploy. (to dev and then to prod)
-Update configuration values and deploy. (Update one of the values in the config file - should restart the app and as a result to update the link)
+1. Update app version and deploy. (to dev and then to prod)
+2. Update configuration values and deploy. (Update one of the values in the config file - should restart the app and as a result to update the link)
