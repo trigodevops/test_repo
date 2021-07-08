@@ -14,7 +14,7 @@ Please deploy a multi env configuration solution
 
 You can deploy it anywhere you want with any tool that to want to use.
 
-This are the 3 Links - PLesae notice - 
+This are the 3 Links - Please notice - 
 
 a. 2 Different services.
 b. Dont copy the config to the app - inject it.
