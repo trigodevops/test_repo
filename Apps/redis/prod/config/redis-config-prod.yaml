@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config-prod
+  labels:
+        environment: "prod"
+data:
+  redis-config: "" |
+    lua-time-limit 6000
