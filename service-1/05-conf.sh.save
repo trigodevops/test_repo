@@ -1,0 +1,2 @@
+RUN echo "env | grep Trigo > /usr/share/nginx/html/index.conf" >> /docker-entrypoint.d/05-conf.sh
+RUN echo "chmod 755 /usr/share/nginx/html/index.conf" >> /docker-entrypoint.d/05-conf.sh
