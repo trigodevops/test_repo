@@ -31,6 +31,3 @@
 ### Stage 2:
 1. Update app version and deploy it to dev and then to prod
 2. Update configuration values and deploy (Update one of the values in the config file - should restart the app and as a result to update the service response)
-
-### Stage 3:
-Describe an implementation of logging and metrics collection for your services
