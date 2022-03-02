@@ -3,7 +3,7 @@ import json
 import flask
 
 from src.config_parser import get_base_config, get_dev_config, get_prod_config
-from src.config import PORT, PROD_ENDPOINT, DEV_ENDPOINT
+from src.config import PORT, PROD_ENDPOINT, DEV_ENDPOINT, HOST
 
 app = flask.Flask(__name__)
 base_config = get_base_config()
@@ -23,4 +23,4 @@ def expose_dev_config():
     return json.dumps(exposed_config)
 
 
-app.run(port=PORT)
+app.run(host=HOST, port=PORT)

@@ -8,7 +8,7 @@ def load_config():
 
 
 CONFIG = load_config()
-
+HOST = CONFIG["API"]["HOST"]
 PORT = CONFIG["API"]["PORT"]
 PROD_ENDPOINT = CONFIG["APT"]["ROUTE"]["PROD_CONFIG"]
 DEV_ENDPOINT = CONFIG["APT"]["ROUTE"]["DEV_CONFIG"]
