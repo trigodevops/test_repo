@@ -2,7 +2,7 @@
   "API": {
     "HOST": "0.0.0.0",
     "PORT": 8080,
-    "ROUTES": {
+    "ROUTE": {
       "PROD_CONFIG": "/prod/config",
       "DEV_CONFIG": "/dev/config"
     }
