@@ -1,0 +1,4 @@
+{
+  "env": "dev",
+  "additional_config": "service_a dev config"
+}

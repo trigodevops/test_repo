@@ -1,0 +1,4 @@
+{
+  "env": "prod",
+  "additional_config": "service_a prod config"
+}
