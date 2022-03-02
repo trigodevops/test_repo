@@ -1,47 +1,35 @@
-## Trigo – DevOps Assignment
+## Trigo – DevOps Assignment -Shayel's Solution
+#Stage 1:
 
-### General:
+### How to Run:
+ 
+1. Due to computing issues you will have to clone the code to your computer 
+2. build the image locally using the included Dockerfile
+3. upload it to any container registry you desire
+4. create new deployment and **mount** the config files to `config` folder(in case of forget to mount it will use the default values which currently exists in the files):
+   * base_config - will be retrieved once at the begging of the program.
+   * prod_config - will be retrieved each time the client access the prod endpoint
+   * dev_config - will be retrieved each time the client access the dev endpoint
+   * app_config - this config file used to define paramters for running the app (port,routes etc.)
 
-* Clone the following repo: https://github.com/trigodevops/test_repo.git  
-
-* Work only on that repo (you got all the permissions that you need)  
-
-* Create a new branch and work on it (not directly on master/main) 
-
-* Please provide a descriptive readme file, so we know how to run your solution
-
-* Solution needs to have the ability to scale
-
-* The assignment is limited to 3 hours
-
-### Stage 1:  
-1. Deploy a multi env configuration solution anywhere you want with any tool that to want to use.
-
-2. There are 2 (different) services and 3 Links:
-
-    A. http(s)://`<ADDRESS>:<PORT>`/**prod**/service-a/config - will present production configuration of service a 
-
-    B. http(s)://`<ADDRESS>:<PORT>`/**prod**/service-b/config - will present production configuration of service b
-
-    C. http(s)://`<ADDRESS>:<PORT>`/**dev**/service-a/config  - will present dev configuration of service a
-
-3. Each service will have its own config with accordance to the environment
-4. Each service will respond with its config 
-5. Don't copy the config to the app - inject it  
-#### HINT:
-Config should be hieratical, e.g:
-```bash
-├── base_config
-│   ├── main_config
-└── environments
-    ├── dev
-    │   ├── some_dev_config
-    │   └── some_other_dev_config
-    ├── production
-        ├── some_prod_config
-        ├── some_other_prod_config
-```
-
-### Stage 2:
-1. Write/describe a process for rolling an update of a new app version, and deploying it to dev and then to prod
-2. Write/describe a process for deployment of a configuration update (one of the values in the config file), which should trigger a restart of the app and result an update of the service response
+5. after you deployed the image 2 times (once for service-a other one for service-b) use the included file **ingress.yaml** to deploy the ingress which expose endpoint according to the requirements:
+###Supported Endpoints:
+By review the ingress.yaml you can see that there are 3 endpoints exposed:
+   1. /dev/service-a/config 
+      a. return base config and dev config of service a
+   2. /prod/service-a/config
+      a. return base config and prod config of service a
+   3. /prod/service-b/config
+      a. return base config and prod config of service b
+      
+####thougths:
+1. During coding, I thought about implement a class for config as below:
+    * Separate file for each config type and read it when the customer access the endpoint
+    * implement Class for Base config and inherit from it to Dev and Prod Classes.
+    * store the config in DB and retrieve based on requirements.
+#Stage 2:
+1. the required process is CI/CD tool which we define with the following steps:
+    1. for merging into specific (dev) branch, it should accomplish necessary tests for the products
+    2. create image with `dev` tag
+    3. redeploy the exists workload in the dev env (not sure about the CD flow)
+2. consider to create a listener program that will watch for changes in the config map,once it changes the program will restart the pod". another solution to this issue can be to load the config map each X seconds so the new configuration will be load to the pod every time it "refreshed"
