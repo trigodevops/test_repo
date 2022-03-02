@@ -3,5 +3,5 @@
 .idea/
 venv/
 Dockerfile
-
+ingress.yaml
 README.md
