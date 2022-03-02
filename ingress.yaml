@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: service-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: services.info
+      http:
+        paths:
+          - path: /prod/service-a/config
+            pathType: Prefix
+            backend:
+              service:
+                name: service-a
+                port:
+                  number: 8080
+          - path: /prod/service-b/config
+            pathType: Prefix
+            backend:
+              service:
+                name: service-b
+                port:
+                  number: 8080
+          - path: /dev/service-a/config
+            pathType: Prefix
+            backend:
+              service:
+                name: service-a
+                port:
+                  number: 8080
