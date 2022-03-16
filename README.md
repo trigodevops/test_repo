@@ -2,12 +2,6 @@
 
 ### General:
 
-* Clone the following repo: https://github.com/trigodevops/test_repo.git  
-
-* Work only on that repo (you got all the permissions that you need)  
-
-* Create a new branch and work on it (not directly on master/main) 
-
 * Please provide a descriptive readme file, so we know how to run your solution
 
 * Solution needs to have the ability to scale
@@ -28,8 +22,7 @@
 3. Each service will have its own config with accordance to the environment
 4. Each service will respond with its config 
 5. Don't copy the config to the app - inject it  
-#### HINT:
-Config should be hieratical, e.g:
+6. Config should be hieratical, e.g:
 ```bash
 ├── base_config
 │   ├── main_config
